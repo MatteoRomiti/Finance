@@ -1,0 +1,106 @@
+\documentclass[a4paper,11pt]{book}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+
+% \documentclass{article}
+\usepackage[utf8]{inputenc}
+\title{Finance and capital markets}
+\author{Matteo Romiti}
+\date{\today}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{pagecolor,lipsum}% http://ctan.org/pkg/{pagecolor,lipsum}
+\usepackage[]{graphicx}
+\usepackage{amsmath}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 'dedication' environment: To add a dedication paragraph at the start of book %
+% Source: http://www.tug.org/pipermail/texhax/2010-June/015184.html            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{dedication}
+{
+   \cleardoublepage
+   \thispagestyle{empty}
+   \vspace*{\stretch{1}}
+   \hfill\begin{minipage}[t]{0.66\textwidth}
+   \raggedright
+}
+{
+   \end{minipage}
+   \vspace*{\stretch{3}}
+   \clearpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter quote at the start of chapter        %
+% Source: http://tex.stackexchange.com/a/53380 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First page of book which contains 'stuff' like: %
+%  - Book title, subtitle                         %
+%  - Book author name                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Book's title and subtitle
+\title{\Huge \textbf{Finance and Capital Markets}\\}
+% Author
+\author{\textsc{Matteo Romiti}\thanks{\url{https://matteoromiti.github.io/}}}
+
+
+\begin{document}
+% \pagecolor{yellow!30!orange}
+\frontmatter
+\maketitle
+
+\begin{dedication}
+To all the curious people out there.
+\end{dedication}
+
+\hypertarget{ToC}{}
+\tableofcontents
+
+\mainmatter
+
+\input{chapters/preface.tex}
+
+\section*{Acknowledgements}
+My deepest gratitude to Salman Amin Khan.
+
+\input{chapters/interest_debt.tex}
+\input{chapters/housing.tex}
+\input{chapters/inflation.tex}
+\input{chapters/taxes.tex}
+\input{chapters/accounting.tex}
+\input{chapters/stocks_bonds.tex}
+\input{chapters/investment_vehicles.tex}
+\input{chapters/options.tex}
+\input{chapters/central_banks.tex}
+\input{chapters/current.tex}
+\input{chapters/macroeconomics.tex}
+% \input{chapters/microeconomics.tex}
+\input{chapters/scandals.tex}
+
+\bibliographystyle{plain}
+\bibliography{references}
+% \lipsum
+\end{document}
